@@ -1,0 +1,8 @@
+.vagrant/*
+SshHostKeys/*
+kitty.exe
+tools/Jumplist/RecentSessions
+tools/Sessions/Default*
+tools/SshHostKeys/*
+*swp
+*~
