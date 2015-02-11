@@ -1,7 +1,7 @@
 PortKnocking\\
 Comment\\
 CtrlTabSwitch\0\
-Password\3v230\
+Password\b0vvp\
 ForegroundOnBell\0\
 SaveWindowPos\0\
 WindowState\0\
@@ -159,7 +159,7 @@ FontQuality\3\
 FontHeight\10\
 FontCharSet\0\
 FontIsBold\0\
-Font\Consolas\
+Font\DejaVu%20Sans%20Mono%20for%20Powerline\
 TermHeight\24\
 TermWidth\80\
 WinTitle\\
@@ -213,7 +213,7 @@ BackspaceIsDelete\1\
 PassiveTelnet\0\
 RFCEnviron\0\
 RemoteCommand\\
-PublicKeyFile\..%5C.vagrant%5Cmachines%5Cdefault%5Cvirtualbox%5Cprivate_key.ppk\
+PublicKeyFile\%2E.%5C.vagrant%5Cmachines%5Cdefault%5Cvirtualbox%5Cprivate_key.ppk\
 SSH2DES\0\
 LogHost\\
 SshProt\2\
