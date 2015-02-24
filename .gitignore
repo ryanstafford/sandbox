@@ -4,5 +4,6 @@ kitty.exe
 tools/Jumplist/RecentSessions
 tools/Sessions/Default*
 tools/SshHostKeys/*
+src/*
 *swp
 *~
