@@ -25,6 +25,7 @@ endif
 filetype plugin indent on   " detect file type and load indents and plugins
 syntax on                   " turn on syntax highlighting
 colorscheme jellybeans      " syntax highlighting colours
+let &t_Co=256
 set laststatus=2
 let g:jellybeans_use_lowcolor_black = 0
 let g:airline_powerline_fonts = 1

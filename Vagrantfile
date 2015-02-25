@@ -1,7 +1,7 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 Vagrant.configure(2) do |config|
-  config.vm.synced_folder "src/", "/data"
+  config.vm.synced_folder "src/", "/src"
   config.vm.network "public_network"
   config.vm.network "forwarded_port", guest: 80, host: 80
   config.vm.network "forwarded_port", guest: 443, host: 443 
