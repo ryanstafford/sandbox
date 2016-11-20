@@ -212,7 +212,7 @@ RXVTHomeEnd\0\
 BackspaceIsDelete\1\
 PassiveTelnet\0\
 RFCEnviron\0\
-RemoteCommand\\
+RemoteCommand\tmux%20-2%20attach%20%7C%7C%20tmux%20-2\
 PublicKeyFile\%2E.%5C.vagrant%5Cmachines%5Cdefault%5Cvirtualbox%5Cprivate_key.ppk\
 SSH2DES\0\
 LogHost\\
