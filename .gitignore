@@ -7,3 +7,6 @@ tools/SshHostKeys/*
 src/*
 *swp
 *~
+conky/ip
+conky/updateCount
+conky/weather
