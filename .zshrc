@@ -11,4 +11,4 @@ plugins=(
 )
 source $ZSH/oh-my-zsh.sh
 alias l='exa'
-# You may need to manually set your language environment
+source $HOME/.secrets
