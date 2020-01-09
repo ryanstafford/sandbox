@@ -51,12 +51,13 @@ bindsym $mod+bracketright exec mpc next
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+shift+Return exec pcmanfm
-bindsym $mod+w exec qutebrowser
-bindsym $mod+shift+w exec qutebrowser --temp-basedir
+bindsym $mod+w exec firefox
+bindsym $mod+shift+w exec firefox -private-window
 bindsym $mod+o exec qutebrowser :open $(zenity --entry --text=Web\ Search)
 bindsym $mod+e exec pcmanfm
 bindsym $mod+backslash exec firefox moz-extension://e29d797e-1b5e-4c38-bbd8-d9a15596e614/panel.html#popout 
 bindsym --release $mod+s exec ~/.config/i3/scrot.sh
+bindsym $mod+Shift+c exec xdotool key Caps_Lock
 # kill focused window
 bindsym $mod+Shift+q kill
 bindsym $mod+Tab exec rofi -show window
@@ -94,6 +95,12 @@ bindsym $mod+Shift+h move left
 bindsym $mod+Shift+j move down
 bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
+
+# move container to monitor
+bindsym $mod+Control+h move container to output left
+bindsym $mod+Control+j move container to output down
+bindsym $mod+Control+k move container to output up
+bindsym $mod+Control+l move container to output right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
@@ -165,7 +172,7 @@ bindsym $mod+Shift+9 move container to workspace $ws9
 bindsym $mod+Shift+0 move scratchpad
 
 # reload the configuration file
-bindsym $mod+Shift+c reload
+#bindsym $mod+Alt+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
@@ -213,5 +220,6 @@ bar {
         separator_symbol " "
         font pango:Overpass Nerd Font Mono 14
 }
-exec --no-startup-id compton
+exec --no-startup-id picom
+exec --no-startup-id nm-applet
 #exec --no-startup-id protonmail-bridge --no-window

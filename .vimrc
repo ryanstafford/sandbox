@@ -23,16 +23,21 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'nginx.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'bling/vim-airline'
-Plugin 'w0rp/ale'
+Plugin 'dense-analysis/ale'
 Plugin 'posva/vim-vue'
 Plugin 'junegunn/fzf.vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'nathanaelkane/vim-indent-guides'
-Plugin 'mxw/vim-jsx'
-Plugin 'pangloss/vim-javascript'
-Plugin 'alampros/vim-styled-jsx'
+"Plugin 'mxw/vim-jsx'
+Plugin 'yuezk/vim-js'
+Plugin 'MaxMEllon/vim-jsx-pretty'
+"Plugin 'alampros/vim-styled-jsx'
+Plugin 'cakebaker/scss-syntax.vim'
+Plugin 'hail2u/vim-css3-syntax.git'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'tomasr/molokai'
+Plugin 'vim/killersheep'
+Plugin 'cespare/vim-toml'
 
 call vundle#end()
 
@@ -122,7 +127,9 @@ nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
 " Limit linters used for JavaScript.
 let g:ale_linters = { 'javascript': ['eslint'] }
 let g:ale_fixers = { 'javascript': ['eslint'] }
-let g:ale_php_phpcs_standard = 'PSR2'
+let g:ale_javascript_eslint_use_global = 1
+let g:ale_php_phpcs_standard = 'PSR12'
+let g:ale_php_phpcs_executable = 'phpcs --exclude=PSR1.Classes.ClassDeclaration.MissingNamespace'
 let g:ale_set_loclist = 0
 let g:ale_set_quickfix = 1
 highlight clear ALEErrorSign " otherwise uses error bg color (typically red)
