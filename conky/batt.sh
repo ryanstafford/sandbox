@@ -8,14 +8,13 @@ percentage=$(echo "x=$energy/$full*100; scale=0; x/1" | bc -l)
 life=$(echo "x=$full/$designfull*100; scale=0; x/1" | bc -l)
 if [ $AC == 1 ]
 then
-  time=$(echo "($full-$energy)/$power*60*60 + 5*60*60" | bc -l)
+  time=$(echo "($full-$energy)/$power*60*60" | bc -l)
   icons=(         )
 else 
-  time=$(echo "$energy/$power*60*60 + 5*60*60" | bc -l)
+  time=$(echo "$energy/$power*60*60" | bc -l)
   icons=(          )
 fi 
-time=$(echo $(date -d "@$time") | awk '{print $5 }')
-time=$(echo $time | sed 's/:..$//g' | sed 's/00:00//g')
+time=$(date +%T -d "1970-01-01 + $time seconds")
 step=$(echo "x=$percentage/100*(${#icons[@]}-2); scale=0; x/1" | bc -l)
 if [ $percentage == 100 ]
 then
@@ -24,3 +23,4 @@ fi
 
 #echo ${icons[step]} $percentage% $time $life%
 echo ${icons[step]} $percentage% $time
+
