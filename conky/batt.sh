@@ -27,4 +27,3 @@ else
 fi
 
 #echo ${icons[step]} $percentage $time $life%
-
