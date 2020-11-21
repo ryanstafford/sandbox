@@ -1,0 +1,7 @@
+#!/bin/bash
+case $BLOCK_BUTTON in
+    4) xbacklight -inc 10 ;;
+    5) xbacklight -dec 10 ;;
+esac
+brightness=$(xbacklight)
+echo 💡${brightness%.*}

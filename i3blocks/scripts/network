@@ -1,0 +1,28 @@
+#!/bin/sh
+if [ -f state/network ]; then
+  test $BLOCK_BUTTON = 1 && rm state/network
+else
+  test $BLOCK_BUTTON = 1 && touch state/network
+fi
+
+default="$(ip route | grep default | head -n 1)"
+  #if [ ! -n "$ext_latency" ]; then
+  #  ext_latency="$(ping -c 1 1.1.1.1 | grep time= | awk '{print $7}' | cut -d '=' -f 2) ms"
+  #fi
+if [ -z "$default" ]; then echo "睊"; else
+  name=$(echo $default | awk '{print $5}')
+  if [ -d "/sys/class/net/$name/wireless" ]; then
+    icon=
+    else
+      icon=
+  fi
+  if [ -f state/network ]; then
+    ssid=$(iw dev $name link | grep SSID | awk '{print $2}')
+    ip=$(ip addr show $name | grep 'inet ' | awk '{print $2}' | cut -d '/' -f 1)
+  fi
+  gateway=$(echo $default | awk '{print $3}')
+  level="$(iw dev $name link | grep signal | awk '{print $2}')"
+  precentage=$(echo "($level + 120)" | bc) 
+  if [ ! -z "$level" ]; then level=$(echo $level dBm); fi
+  echo $icon $ip $ssid $level
+fi

@@ -12,8 +12,17 @@ then
   wind_direction=${wind_direction[$(printf %.0f $(echo "$wind_bearing/360*8" | bc -l))]}
   icon=$(echo $json | jq .currently.icon | sed "s/\"//g")
   declare -A icons
-  icons=( ["clear-day"]="☀" ["clear-night"]="$moon_phase" ["rain"]="☔" ["snow"]="🌨️" ["sleet"]="🌨️" ["wind"]="🌫$wind_direction" ["fog"]="🌁" ["cloudy"]="☁️" ["partly-cloudy-day"]="⛅" ["partly-cloudy-night"]="☁️" )
-  echo $temp°${icons[$icon]} > ~/.config/conky/weather
-else
-  echo no network
+  icons=(
+    ["clear-day"]="☀"
+    ["clear-night"]="$moon_phase"
+    ["rain"]="☔"
+    ["snow"]="🌨️"
+    ["sleet"]="🌨️"
+    ["wind"]="🌫$wind_direction"
+    ["fog"]="🌁"
+    ["cloudy"]="☁️"
+    ["partly-cloudy-day"]="⛅"
+    ["partly-cloudy-night"]="☁️"
+  )
+  echo $temp°${icons[$icon]}
 fi

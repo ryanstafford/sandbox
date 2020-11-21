@@ -1,0 +1,13 @@
+#!/bin/bash
+if [ -f state/music ]; then
+  test $BLOCK_BUTTON = 1 && rm state/music
+else
+  test $BLOCK_BUTTON = 1 && touch state/music
+fi 
+
+if [ -f state/music ]; then
+  music=$(mpc -f "[%artist% - ]%title%" | awk 'NR==      1' | tr -d '\"'})
+  echo  $music
+else
+  echo 
+fi

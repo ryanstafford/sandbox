@@ -1,0 +1,10 @@
+#!/bin/sh
+#default="$(ip route | grep default | head -n 1)"
+#  #if [ ! -n "$ext_latency" ]; then
+#  #  ext_latency="$(ping -c 1 1.1.1.1 | grep time= | awk '{print $7}' | cut -d '=' -f 2) ms"
+#  #fi
+#name=$(echo $default | awk '{print $5}')
+#gateway=$(echo $default | awk '{print $3}')
+#latency="$(ping -c 1 $gateway | grep time= | awk '{print $7}' | cut -d '=' -f 2 | awk '{print int($1+0.f)}') ms"
+#echo $latency
+echo  $(traceroute --max-hops=2 1.1.1.1 | grep -v "\*" | awk '/^ [1,2]/ {print int($4+0.f) "ms"}' | xargs)

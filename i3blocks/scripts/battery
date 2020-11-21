@@ -23,7 +23,8 @@ then
   step=$(echo "$step + 1" | bc)
   echo ${icons[step]}
 else
-  echo ${icons[step]} $percentage% $time
+  power=$(echo $power | awk '{printf "%0.1f W", $1*10^-6}')
+  echo ${icons[step]} $percentage% ${time%???} $power
 fi
 
 #echo ${icons[step]} $percentage $time $life%

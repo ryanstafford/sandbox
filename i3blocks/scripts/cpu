@@ -1,0 +1,5 @@
+#!/bin/bash
+#usage=$(mpstat 1 1 | awk '/Average/ {print $12}' | cut -d "." -f 1 | cut -d "," -f 1)
+usage=$(top -bn1 | awk '/%Cpu/ {print $2}')
+temp=$(sensors | grep Package | awk '{print substr($4, 2)}')
+echo  $usage% $temp
