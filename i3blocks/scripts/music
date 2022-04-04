@@ -1,13 +1,14 @@
 #!/bin/bash
-if [ -f state/music ]; then
-  test $BLOCK_BUTTON = 1 && rm state/music
+state=.config/i3blocks/state/music
+if [ -f $state ]; then
+  test "$BLOCK_BUTTON" = "1" && rm $state
 else
-  test $BLOCK_BUTTON = 1 && touch state/music
+  test "$BLOCK_BUTTON" = "1" && touch $state
 fi 
 
-if [ -f state/music ]; then
+if [ -f $state ]; then
   music=$(mpc -f "[%artist% - ]%title%" | awk 'NR==      1' | tr -d '\"'})
-  echo  $music
+  echo ♫ $music
 else
-  echo 
+  echo ♫
 fi

@@ -1,4 +1,4 @@
 #!/bin/bash
 free=$(df -H | awk '/.*\/$/ {print $4}')
-temp=$(sensors | awk '/Composite/ {print substr($2,2)}')
+#temp=$(sensors | awk '/Composite/ {print substr($2,2)}')
 echo  $free $temp

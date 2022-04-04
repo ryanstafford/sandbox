@@ -1,9 +1,4 @@
-command=scripts/$BLOCK_NAME
-
-[uname]
-command=uname -r
-interval=once
-
+command=.config/i3blocks/scripts/$BLOCK_NAME
 [internet]
 interval=5
 markup=pango
@@ -29,21 +24,8 @@ interval=2
 interval=5
 color=#FFFF00
 
-[volume]
-interval=2
-
 [brightness]
 interval=2
-
-[updates]
-interval=86400
-
-[battery]
-interval=2
-color=#FFC444
-
-[weather]
-interval=3600
 
 [time]
 interval=5

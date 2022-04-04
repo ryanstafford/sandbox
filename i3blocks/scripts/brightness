@@ -1,7 +1,8 @@
 #!/bin/bash
+path=/sys/class/backlight/10-0045/brightness
+b=$(cat $path)
 case $BLOCK_BUTTON in
-    4) xbacklight -inc 10 ;;
-    5) xbacklight -dec 10 ;;
+    4) echo $(($b+50)) > $path;;
+    5) echo $(($b-50)) > $path ;;
 esac
-brightness=$(xbacklight)
-echo 💡${brightness%.*}
+echo $(($(cat $path)*100/255))

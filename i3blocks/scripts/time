@@ -1,2 +1,15 @@
 #!/bin/bash
-date '+%a %F %r'
+state=.config/i3blocks/state/time
+if [ -f $state ]; then
+  test "$BLOCK_BUTTON" = "1" && rm $state
+else
+  test "$BLOCK_BUTTON" = "1" && touch $state
+fi
+
+if [ -f $state ]; then
+  d=$(date '+%a %F %r')
+else
+  d=$(date '+%H:%M:%S')
+fi
+
+printf "$d "

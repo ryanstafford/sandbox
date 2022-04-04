@@ -8,10 +8,6 @@
 # i3 config file (v4)
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
-gaps inner 10
-gaps outer 0
-smart_gaps on
-smart_borders on
 #new_window 1pixel #
 for_window [class=__focused__] border pixel 5
 for_window [class="^.*"] border pixel 5
@@ -228,7 +224,7 @@ bindsym $mod+c mode "chromecast"
 bar {
         status_command i3blocks
         separator_symbol " "
-        font pango:Overpass Nerd Font Mono 14
+        font pango:Overpass Nerd Font Mono 9
 }
 exec --no-startup-id picom
 exec --no-startup-id nm-applet

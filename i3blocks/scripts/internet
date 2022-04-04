@@ -1,15 +1,17 @@
 #!/bin/sh
-if [ -f state/internet ]; then
-  test $BLOCK_BUTTON = 1 && rm state/internet
+state=.config/i3blocks/state/internet
+if [ -f $state ]; then
+  test "$BLOCK_BUTTON" = "1" && rm $state
 else
-  test $BLOCK_BUTTON = 1 && curl -s -o state/internet 'https://api.protonmail.ch/vpn/location'
+  test "$BLOCK_BUTTON" = "1" && curl -s -o $state 'https://api.protonmail.ch/vpn/location'
 fi
 
-if [[ $(traceroute --max-hops=2 -q 1 1.1.1.1 | grep -v "\*" | wc -l) = "3" ]]; then
-  if [ -f state/internet ]; then
-    ip=$(cat state/internet | jq -r '.IP')
-    isp=$(cat state/internet | jq -r '.ISP')
-    country="($(cat state/internet | jq -r '.Country'))"
+hops=$(traceroute --max-hops=2 1.1.1.1 | grep -v "\*" | grep '^ 2')
+if [ -n "$hops" ]; then
+  if [ -f $state ]; then
+    ip=$(cat $state | jq -r '.IP')
+    isp=$(cat $state | jq -r '.ISP')
+    country="($(cat $state | jq -r '.Country'))"
     printf "<span size='small'><span color='#00FF00'> %s</span> %s %s</span>\n" "$ip" "$isp" "$country"
   else
     printf "<span size='small' color='#00FF00'></span>\n"

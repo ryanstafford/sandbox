@@ -1,8 +1,9 @@
 #!/bin/sh
-if [ -f state/network ]; then
-  test $BLOCK_BUTTON = 1 && rm state/network
+state=.config/i3blocks/state/network
+if [ -f $state ]; then
+  test "$BLOCK_BUTTON" = "1" && rm $state
 else
-  test $BLOCK_BUTTON = 1 && touch state/network
+  test "$BLOCK_BUTTON" = "1" && touch $state
 fi
 
 default="$(ip route | grep default | head -n 1)"
@@ -16,7 +17,7 @@ if [ -z "$default" ]; then echo "睊"; else
     else
       icon=
   fi
-  if [ -f state/network ]; then
+  if [ -f $state ]; then
     ssid=$(iw dev $name link | grep SSID | awk '{print $2}')
     ip=$(ip addr show $name | grep 'inet ' | awk '{print $2}' | cut -d '/' -f 1)
   fi

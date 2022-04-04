@@ -5,4 +5,4 @@ case $BLOCK_BUTTON in
       ;;
 esac
 
-echo  $(free -h | awk '/Mem:/ { gsub(/i/, ""); print $3 }')
+echo $(free -h | awk '/Mem:/ { gsub(/i/, ""); print $3 }')
